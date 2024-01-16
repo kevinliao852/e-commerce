@@ -1,15 +1,31 @@
 package com.example.ecommerce.item;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Item {
-  private Long id;
-  private String name;
-  private Double cost;
 
-  public Item(Long id, String name, Double cost) {
-    this.id = id;
-    this.name = name;
-    this.cost = cost;
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+
+  private String name;
+  private double price;
+  private int quantity;
+
+  // Constructors, getters, and setters
+
+  public Item() {
+    // Default constructor required by JPA
   }
+
+  public Item(String name, double price, int quantity) {
+    this.name = name;
+    this.price = price;
+    this.quantity = quantity;
+  }
+
+  // Getter and Setter methods
 
   public Long getId() { return id; }
 
@@ -19,7 +35,13 @@ public class Item {
 
   public void setName(String name) { this.name = name; }
 
-  public Double getCost() { return cost; }
+  public double getPrice() { return price; }
 
-  public void setCost(Double cost) { this.cost = cost; }
+  public void setPrice(double price) { this.price = price; }
+
+  public int getQuantity() { return quantity; }
+
+  public void setQuantity(int quantity) { this.quantity = quantity; }
+
+  // toString, equals, hashCode methods (optional, but recommended for entities)
 }

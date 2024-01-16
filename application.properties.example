@@ -1,0 +1,5 @@
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/e-commerce
+spring.datasource.username=USERNAME
+spring.datasource.password=PASSWORD
+spring.jpa.hibernate.ddl-auto=update
