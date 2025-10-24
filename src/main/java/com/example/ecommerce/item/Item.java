@@ -1,8 +1,13 @@
 package com.example.ecommerce.item;
+
+import com.example.ecommerce.cart.Cart;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Item {
@@ -12,6 +17,10 @@ public class Item {
   private String name;
   private double price;
   private int quantity;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "cart_id")
+  private Cart cart;
 
   // Constructors, getters, and setters
 
